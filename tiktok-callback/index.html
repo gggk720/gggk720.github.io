@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head><title>TikTok Auth</title></head>
+<body>
+<h1>Authorization successful!</h1>
+<p>Copy this code and paste it into the terminal:</p>
+<p id="code" style="font-size:24px;font-weight:bold;color:#1a73e8"></p>
+<script>
+const params = new URLSearchParams(window.location.search);
+const code = params.get('code');
+if (code) document.getElementById('code').textContent = code;
+else document.getElementById('code').textContent = 'No code received';
+</script>
+</body>
+</html>
