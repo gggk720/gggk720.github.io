@@ -32,7 +32,7 @@
     .sports { padding: 80px 24px; }
     .sports h2 { text-align: center; font-size: 2.4rem; font-weight: 800; margin-bottom: 12px; color: #1a1a2e; }
     .sports .desc { text-align: center; color: #64748b; font-size: 1.05rem; margin-bottom: 56px; }
-    .sports-grid { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; max-width: 900px; margin: 0 auto; }
+    .sports-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 28px 20px; max-width: 700px; margin: 0 auto; }
     .sport-card { display: flex; flex-direction: column; align-items: center; gap: 10px; text-decoration: none; transition: transform 0.25s; }
     .sport-card:hover { transform: translateY(-6px); }
     .sport-card img { width: 80px; height: 80px; border-radius: 20px; box-shadow: 0 6px 24px rgba(0,0,0,0.1); }
@@ -113,16 +113,16 @@
     <h2>Choose Your Sport</h2>
     <p class="desc">Every app built specifically for its sport</p>
     <div class="sports-grid">
-      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.coachboard"><img src="assets/icon_soccer.png" alt="Soccer"><h3>Soccer</h3></a>
-      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.basketball"><img src="assets/icon_basketball.png" alt="Basketball"><h3>Basketball</h3></a>
-      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.cricket"><img src="assets/icon_cricket.png" alt="Cricket"><h3>Cricket</h3></a>
-      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.baseball"><img src="assets/icon_baseball.png" alt="Baseball"><h3>Baseball</h3></a>
-      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.football"><img src="assets/icon_football.png" alt="Football"><h3>Football</h3></a>
-      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.hockey"><img src="assets/icon_hockey.png" alt="Hockey"><h3>Hockey</h3></a>
-      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.volleyball"><img src="assets/icon_volleyball.png" alt="Volleyball"><h3>Volleyball</h3></a>
-      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.handball"><img src="assets/icon_handball.png" alt="Handball"><h3>Handball</h3></a>
-      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.lacrosse"><img src="assets/icon_lacrosse.png" alt="Lacrosse"><h3>Lacrosse</h3></a>
-      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.rugby"><img src="assets/icon_rugby.png" alt="Rugby"><h3>Rugby</h3></a>
+      <a class="sport-card" href="/coach-soccer/"><img src="assets/icon_soccer.png" alt="Soccer"><h3>Soccer</h3></a>
+      <a class="sport-card" href="/coach-basketball/"><img src="assets/icon_basketball.png" alt="Basketball"><h3>Basketball</h3></a>
+      <a class="sport-card" href="/coach-cricket/"><img src="assets/icon_cricket.png" alt="Cricket"><h3>Cricket</h3></a>
+      <a class="sport-card" href="/coach-baseball/"><img src="assets/icon_baseball.png" alt="Baseball"><h3>Baseball</h3></a>
+      <a class="sport-card" href="/coach-football/"><img src="assets/icon_football.png" alt="Football"><h3>Football</h3></a>
+      <a class="sport-card" href="/coach-hockey/"><img src="assets/icon_hockey.png" alt="Hockey"><h3>Hockey</h3></a>
+      <a class="sport-card" href="/coach-volleyball/"><img src="assets/icon_volleyball.png" alt="Volleyball"><h3>Volleyball</h3></a>
+      <a class="sport-card" href="/coach-handball/"><img src="assets/icon_handball.png" alt="Handball"><h3>Handball</h3></a>
+      <a class="sport-card" href="/coach-lacrosse/"><img src="assets/icon_lacrosse.png" alt="Lacrosse"><h3>Lacrosse</h3></a>
+      <a class="sport-card" href="/coach-rugby/"><img src="assets/icon_rugby.png" alt="Rugby"><h3>Rugby</h3></a>
     </div>
   </section>
 
