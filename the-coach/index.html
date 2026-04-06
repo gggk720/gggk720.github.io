@@ -32,14 +32,11 @@
     .sports { padding: 80px 24px; }
     .sports h2 { text-align: center; font-size: 2.4rem; font-weight: 800; margin-bottom: 12px; color: #1a1a2e; }
     .sports .desc { text-align: center; color: #64748b; font-size: 1.05rem; margin-bottom: 56px; }
-    .sports-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
-    .sport-card { background: #fff; border: 1px solid #f0f0f5; border-radius: 20px; padding: 32px 24px; text-align: center; text-decoration: none; color: #1a1a2e; transition: transform 0.25s, box-shadow 0.25s; }
-    .sport-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(99,102,241,0.1); }
-    .sport-card img { width: 72px; height: 72px; border-radius: 18px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); margin-bottom: 16px; }
-    .sport-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; }
-    .sport-card p { font-size: 0.85rem; color: #64748b; line-height: 1.5; margin-bottom: 16px; }
-    .sport-card .btn { display: inline-block; background: #6366f1; color: #fff; padding: 8px 20px; border-radius: 50px; font-size: 0.8rem; font-weight: 600; transition: background 0.2s; }
-    .sport-card:hover .btn { background: #4f46e5; }
+    .sports-grid { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; max-width: 900px; margin: 0 auto; }
+    .sport-card { display: flex; flex-direction: column; align-items: center; gap: 10px; text-decoration: none; transition: transform 0.25s; }
+    .sport-card:hover { transform: translateY(-6px); }
+    .sport-card img { width: 80px; height: 80px; border-radius: 20px; box-shadow: 0 6px 24px rgba(0,0,0,0.1); }
+    .sport-card h3 { font-size: 0.9rem; font-weight: 600; color: #1a1a2e; }
 
     /* Features */
     .features { padding: 100px 24px; background: #fafafe; }
@@ -116,66 +113,16 @@
     <h2>Choose Your Sport</h2>
     <p class="desc">Every app built specifically for its sport</p>
     <div class="sports-grid">
-      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.coachboard">
-        <img src="assets/icon_soccer.png" alt="Soccer">
-        <h3>Soccer</h3>
-        <p>4-4-2, 4-3-3, 3-5-2 formations. EPL, La Liga, Bundesliga, Serie A presets.</p>
-        <span class="btn">Get App</span>
-      </a>
-      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.basketball">
-        <img src="assets/icon_basketball.png" alt="Basketball">
-        <h3>Basketball</h3>
-        <p>Court formations with 1-2-2, 2-1-2 setups. NBA and national team presets.</p>
-        <span class="btn">Get App</span>
-      </a>
-      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.cricket">
-        <img src="assets/icon_cricket.png" alt="Cricket">
-        <h3>Cricket</h3>
-        <p>Fielding and batting order. IPL, BBL, PSL, CPL and The Hundred presets.</p>
-        <span class="btn">Get App</span>
-      </a>
-      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.baseball">
-        <img src="assets/icon_baseball.png" alt="Baseball">
-        <h3>Baseball</h3>
-        <p>Diamond defense and batting order. MLB and national team presets.</p>
-        <span class="btn">Get App</span>
-      </a>
-      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.football">
-        <img src="assets/icon_football.png" alt="Football">
-        <h3>American Football</h3>
-        <p>Offense, Defense, Special Teams. I-Formation, Shotgun. NFL presets.</p>
-        <span class="btn">Get App</span>
-      </a>
-      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.hockey">
-        <img src="assets/icon_hockey.png" alt="Hockey">
-        <h3>Ice Hockey</h3>
-        <p>Ice rink formations 1-2-2, 1-3-1, 2-1-2. NHL and national team presets.</p>
-        <span class="btn">Get App</span>
-      </a>
-      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.volleyball">
-        <img src="assets/icon_volleyball.png" alt="Volleyball">
-        <h3>Volleyball</h3>
-        <p>5-1, 6-2, 4-2 rotations with R1-R6 views. V-League, Serie A presets.</p>
-        <span class="btn">Get App</span>
-      </a>
-      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.handball">
-        <img src="assets/icon_handball.png" alt="Handball">
-        <h3>Handball</h3>
-        <p>6-0, 5-1, 3-2-1 defensive formations. EHF and national team presets.</p>
-        <span class="btn">Get App</span>
-      </a>
-      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.lacrosse">
-        <img src="assets/icon_lacrosse.png" alt="Lacrosse">
-        <h3>Lacrosse</h3>
-        <p>3-3-3, 1-4-2-3, 3-2-4 formations. PLL and league presets.</p>
-        <span class="btn">Get App</span>
-      </a>
-      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.rugby">
-        <img src="assets/icon_rugby.png" alt="Rugby">
-        <h3>Rugby</h3>
-        <p>XV and VII formats. Standard, Wide Attack, Tight. National team presets.</p>
-        <span class="btn">Get App</span>
-      </a>
+      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.coachboard"><img src="assets/icon_soccer.png" alt="Soccer"><h3>Soccer</h3></a>
+      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.basketball"><img src="assets/icon_basketball.png" alt="Basketball"><h3>Basketball</h3></a>
+      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.cricket"><img src="assets/icon_cricket.png" alt="Cricket"><h3>Cricket</h3></a>
+      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.baseball"><img src="assets/icon_baseball.png" alt="Baseball"><h3>Baseball</h3></a>
+      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.football"><img src="assets/icon_football.png" alt="Football"><h3>Football</h3></a>
+      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.hockey"><img src="assets/icon_hockey.png" alt="Hockey"><h3>Hockey</h3></a>
+      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.volleyball"><img src="assets/icon_volleyball.png" alt="Volleyball"><h3>Volleyball</h3></a>
+      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.handball"><img src="assets/icon_handball.png" alt="Handball"><h3>Handball</h3></a>
+      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.lacrosse"><img src="assets/icon_lacrosse.png" alt="Lacrosse"><h3>Lacrosse</h3></a>
+      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.rugby"><img src="assets/icon_rugby.png" alt="Rugby"><h3>Rugby</h3></a>
     </div>
   </section>
 
