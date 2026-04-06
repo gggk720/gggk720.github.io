@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I am The Coach - Team Management Apps for 10 Sports</title>
+  <meta name="description" content="Build lineups, draw tactics, track matches & analyze player stats. Available for Soccer, Basketball, Cricket, Baseball, Football, Hockey, Volleyball, Handball, Lacrosse & Rugby.">
+  <link rel="icon" type="image/png" href="assets/main_icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #fff; color: #1a1a2e; overflow-x: hidden; }
+
+    /* Nav */
+    nav { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(0,0,0,0.06); padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #1a1a2e; }
+    .nav-brand img { width: 36px; height: 36px; border-radius: 10px; }
+    .nav-brand span { font-weight: 700; font-size: 1.05rem; }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { text-decoration: none; color: #64748b; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: #6366f1; }
+
+    /* Hero */
+    .hero { padding: 160px 24px 100px; text-align: center; background: linear-gradient(180deg, #f0f0ff 0%, #fff 100%); }
+    .hero h1 { font-size: 3.8rem; font-weight: 900; letter-spacing: -2px; color: #1a1a2e; line-height: 1.05; margin-bottom: 8px; }
+    .hero h1 em { font-style: normal; background: linear-gradient(135deg, #6366f1, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero .subtitle { font-size: 1.25rem; color: #64748b; max-width: 600px; margin: 0 auto 16px; line-height: 1.7; }
+    .hero .badge-row { display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; flex-wrap: wrap; }
+    .hero .badge { display: inline-block; background: #f0f0ff; color: #6366f1; padding: 6px 16px; border-radius: 50px; font-size: 0.8rem; font-weight: 600; }
+
+    /* Sports Grid */
+    .sports { padding: 80px 24px; }
+    .sports h2 { text-align: center; font-size: 2.4rem; font-weight: 800; margin-bottom: 12px; color: #1a1a2e; }
+    .sports .desc { text-align: center; color: #64748b; font-size: 1.05rem; margin-bottom: 56px; }
+    .sports-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
+    .sport-card { background: #fff; border: 1px solid #f0f0f5; border-radius: 20px; padding: 32px 24px; text-align: center; text-decoration: none; color: #1a1a2e; transition: transform 0.25s, box-shadow 0.25s; }
+    .sport-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(99,102,241,0.1); }
+    .sport-card img { width: 72px; height: 72px; border-radius: 18px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); margin-bottom: 16px; }
+    .sport-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; }
+    .sport-card p { font-size: 0.85rem; color: #64748b; line-height: 1.5; margin-bottom: 16px; }
+    .sport-card .btn { display: inline-block; background: #6366f1; color: #fff; padding: 8px 20px; border-radius: 50px; font-size: 0.8rem; font-weight: 600; transition: background 0.2s; }
+    .sport-card:hover .btn { background: #4f46e5; }
+
+    /* Features */
+    .features { padding: 100px 24px; background: #fafafe; }
+    .features h2 { text-align: center; font-size: 2.4rem; font-weight: 800; margin-bottom: 12px; }
+    .features .desc { text-align: center; color: #64748b; font-size: 1.05rem; margin-bottom: 56px; }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto; }
+    .feature-card { background: #fff; border: 1px solid #f0f0f5; border-radius: 16px; padding: 32px 24px; transition: transform 0.2s, box-shadow 0.2s; }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(99,102,241,0.08); }
+    .feature-icon { width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 16px; }
+    .fi-1 { background: #ede9fe; } .fi-2 { background: #d1fae5; } .fi-3 { background: #ffedd5; }
+    .fi-4 { background: #fce7f3; } .fi-5 { background: #cffafe; } .fi-6 { background: #fef9c3; }
+    .feature-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; color: #1a1a2e; }
+    .feature-card p { font-size: 0.9rem; color: #64748b; line-height: 1.6; }
+
+    /* Stats */
+    .stats { padding: 80px 24px; display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; }
+    .stat { text-align: center; }
+    .stat .num { font-size: 2.8rem; font-weight: 900; background: linear-gradient(135deg, #6366f1, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .stat .label { font-size: 0.9rem; color: #94a3b8; margin-top: 4px; }
+
+    /* CTA */
+    .cta { padding: 100px 24px; text-align: center; background: linear-gradient(180deg, #fff 0%, #f0f0ff 100%); }
+    .cta h2 { font-size: 2.4rem; font-weight: 800; margin-bottom: 16px; }
+    .cta p { color: #64748b; font-size: 1.1rem; margin-bottom: 36px; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 10px; background: #1a1a2e; color: #fff; text-decoration: none; padding: 16px 36px; border-radius: 50px; font-size: 1.05rem; font-weight: 600; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.15); }
+
+    /* Footer */
+    footer { text-align: center; padding: 40px 24px; border-top: 1px solid #f0f0f5; }
+    footer a { color: #6366f1; text-decoration: none; font-size: 0.9rem; margin: 0 12px; }
+    footer p { color: #94a3b8; font-size: 0.8rem; margin-top: 12px; }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 2.4rem; }
+      .sports h2, .features h2, .cta h2 { font-size: 1.8rem; }
+      .stats { gap: 32px; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#" class="nav-brand">
+      <img src="assets/main_icon.png" alt="Icon">
+      <span>I am The Coach</span>
+    </a>
+    <div class="nav-links">
+      <a href="#sports">Sports</a>
+      <a href="#features">Features</a>
+      <a href="mailto:gggk720@gmail.com">Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Your <em>All-in-One</em><br>Coaching Companion</h1>
+    <p class="subtitle">Build lineups, draw tactics, track live matches, and analyze player performance with radar charts. Available for 10 sports.</p>
+    <div class="badge-row">
+      <span class="badge">Free to Use</span>
+      <span class="badge">No Login Required</span>
+      <span class="badge">Works Offline</span>
+      <span class="badge">10 Sports</span>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="stat"><div class="num">10</div><div class="label">Sports Covered</div></div>
+    <div class="stat"><div class="num">50+</div><div class="label">Formations</div></div>
+    <div class="stat"><div class="num">100%</div><div class="label">Free Core Features</div></div>
+    <div class="stat"><div class="num">0</div><div class="label">Accounts Needed</div></div>
+  </div>
+
+  <section class="sports" id="sports">
+    <h2>Choose Your Sport</h2>
+    <p class="desc">Every app built specifically for its sport</p>
+    <div class="sports-grid">
+      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.coachboard">
+        <img src="assets/icon_soccer.png" alt="Soccer">
+        <h3>Soccer</h3>
+        <p>4-4-2, 4-3-3, 3-5-2 formations. EPL, La Liga, Bundesliga, Serie A presets.</p>
+        <span class="btn">Get App</span>
+      </a>
+      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.basketball">
+        <img src="assets/icon_basketball.png" alt="Basketball">
+        <h3>Basketball</h3>
+        <p>Court formations with 1-2-2, 2-1-2 setups. NBA and national team presets.</p>
+        <span class="btn">Get App</span>
+      </a>
+      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.cricket">
+        <img src="assets/icon_cricket.png" alt="Cricket">
+        <h3>Cricket</h3>
+        <p>Fielding and batting order. IPL, BBL, PSL, CPL and The Hundred presets.</p>
+        <span class="btn">Get App</span>
+      </a>
+      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.baseball">
+        <img src="assets/icon_baseball.png" alt="Baseball">
+        <h3>Baseball</h3>
+        <p>Diamond defense and batting order. MLB and national team presets.</p>
+        <span class="btn">Get App</span>
+      </a>
+      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.football">
+        <img src="assets/icon_football.png" alt="Football">
+        <h3>American Football</h3>
+        <p>Offense, Defense, Special Teams. I-Formation, Shotgun. NFL presets.</p>
+        <span class="btn">Get App</span>
+      </a>
+      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.hockey">
+        <img src="assets/icon_hockey.png" alt="Hockey">
+        <h3>Ice Hockey</h3>
+        <p>Ice rink formations 1-2-2, 1-3-1, 2-1-2. NHL and national team presets.</p>
+        <span class="btn">Get App</span>
+      </a>
+      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.volleyball">
+        <img src="assets/icon_volleyball.png" alt="Volleyball">
+        <h3>Volleyball</h3>
+        <p>5-1, 6-2, 4-2 rotations with R1-R6 views. V-League, Serie A presets.</p>
+        <span class="btn">Get App</span>
+      </a>
+      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.handball">
+        <img src="assets/icon_handball.png" alt="Handball">
+        <h3>Handball</h3>
+        <p>6-0, 5-1, 3-2-1 defensive formations. EHF and national team presets.</p>
+        <span class="btn">Get App</span>
+      </a>
+      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.lacrosse">
+        <img src="assets/icon_lacrosse.png" alt="Lacrosse">
+        <h3>Lacrosse</h3>
+        <p>3-3-3, 1-4-2-3, 3-2-4 formations. PLL and league presets.</p>
+        <span class="btn">Get App</span>
+      </a>
+      <a class="sport-card" href="https://play.google.com/store/apps/details?id=com.coachboard.rugby">
+        <img src="assets/icon_rugby.png" alt="Rugby">
+        <h3>Rugby</h3>
+        <p>XV and VII formats. Standard, Wide Attack, Tight. National team presets.</p>
+        <span class="btn">Get App</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <h2>Powerful Tools for Every Coach</h2>
+    <p class="desc">Every feature designed for real coaching situations</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon fi-1">🎯</div>
+        <h3>Lineup Builder</h3>
+        <p>Drag-and-drop players onto a realistic field, court, rink, diamond, or oval. Multiple formations for each sport.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon fi-2">📋</div>
+        <h3>Tactical Board</h3>
+        <p>Draw plays with arrows, lines, and curves. Place cones and balls. Full undo/redo support.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon fi-3">⏱️</div>
+        <h3>Live Match Tracking</h3>
+        <p>Record sport-specific events in real-time. Goals, touchdowns, tries, runs, aces, and more.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon fi-4">📊</div>
+        <h3>Player Radar Charts</h3>
+        <p>Visual player ratings with sport-specific attributes. Overall rating and performance tracking.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon fi-5">📈</div>
+        <h3>Season Analytics</h3>
+        <p>Win rate, form tracking, player rankings, and visual charts for your entire season.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon fi-6">👕</div>
+        <h3>Custom Uniforms</h3>
+        <p>Design jerseys with real league presets. Solid, stripes, sash patterns, and full color picker.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Ready to Coach?</h2>
+    <p>Download your sport and take your team to the next level. Free on Google Play.</p>
+    <a href="#sports" class="cta-btn">Choose Your Sport</a>
+  </section>
+
+  <footer>
+    <a href="https://gggk720.github.io/coachboard-privacy/">Privacy Policy</a>
+    <a href="mailto:gggk720@gmail.com">Contact</a>
+    <p>2026 I am The Coach. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
