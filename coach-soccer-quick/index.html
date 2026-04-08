@@ -10,96 +10,84 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3019627601868983" crossorigin="anonymous"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',-apple-system,sans-serif;background:#f5f5fa;color:#1a1a2e}
+body{font-family:'Inter',-apple-system,sans-serif;background:#0f1419;color:#e2e8f0}
 
-/* Top nav */
-nav{background:#fff;border-bottom:1px solid #e5e7eb;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#1a1a2e}
+nav{background:#1a1f2e;border-bottom:1px solid #2d3748;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
 .nav-brand img{width:32px;height:32px;border-radius:8px}
 .nav-brand span{font-weight:700}
 .nav-cta{background:#16a34a;color:#fff;padding:8px 18px;border-radius:50px;text-decoration:none;font-size:0.85rem;font-weight:600}
 
-/* Top ad banner */
-.ad-banner{background:#fff;padding:12px;text-align:center;border-bottom:1px solid #e5e7eb;min-height:100px}
-.ad-label{font-size:0.7rem;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.ad-banner{background:#1a1f2e;padding:12px;text-align:center;border-bottom:1px solid #2d3748}
+.ad-label{font-size:0.7rem;color:#64748b;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
 
-/* Main layout */
-.layout{display:grid;grid-template-columns:200px 1fr 200px;gap:16px;max-width:1400px;margin:0 auto;padding:16px}
+.layout{display:grid;grid-template-columns:160px 1fr 160px;gap:16px;max-width:1300px;margin:0 auto;padding:16px}
 .sidebar{display:flex;flex-direction:column;gap:16px}
-.sidebar-ad{background:#fff;border-radius:12px;padding:12px;text-align:center;min-height:600px}
-.main{background:#fff;border-radius:16px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+.sidebar-ad{background:#1a1f2e;border-radius:12px;padding:12px;text-align:center;min-height:600px}
+.main{background:#1a1f2e;border-radius:16px;padding:0;overflow:hidden}
 
-/* Title */
-h1{font-size:1.8rem;font-weight:800;margin-bottom:6px;text-align:center}
-.subtitle{text-align:center;color:#64748b;font-size:0.95rem;margin-bottom:20px}
+/* App-like header */
+.app-header{background:#1a1f2e;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #2d3748}
+.app-title{font-size:1.05rem;font-weight:700;color:#fff}
+.header-actions{display:flex;gap:14px}
+.header-btn{background:none;border:none;color:#94a3b8;cursor:pointer;font-size:1.1rem;padding:4px}
+.header-btn:hover{color:#fff}
 
-/* Formation selector */
-.formations{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:16px}
-.formation-btn{background:#f1f5f9;border:2px solid transparent;padding:8px 16px;border-radius:50px;font-weight:600;font-size:0.85rem;cursor:pointer;color:#475569;transition:all 0.2s}
-.formation-btn:hover{background:#e2e8f0}
-.formation-btn.active{background:#16a34a;color:#fff;border-color:#16a34a}
+/* Formation chips */
+.formations{display:flex;gap:6px;padding:10px 16px;overflow-x:auto;scrollbar-width:none}
+.formations::-webkit-scrollbar{display:none}
+.formation-btn{background:#252b3b;border:1px solid #2d3748;padding:6px 14px;border-radius:16px;font-weight:500;font-size:0.8rem;cursor:pointer;color:#cbd5e1;white-space:nowrap;transition:all 0.2s}
+.formation-btn.active{background:#16a34a;border-color:#16a34a;color:#fff;font-weight:700}
+
+.player-count{padding:4px 16px 8px;display:flex;justify-content:space-between;font-size:0.75rem;color:#64748b}
 
 /* Field */
-.field-wrap{position:relative;max-width:520px;margin:0 auto;aspect-ratio:0.66;background:linear-gradient(180deg,#22c55e 0%,#16a34a 50%,#15803d 100%);border-radius:12px;border:3px solid #fff;box-shadow:0 8px 24px rgba(0,0,0,0.15);overflow:hidden}
-.field-lines{position:absolute;inset:0;pointer-events:none}
-.field-lines::before,.field-lines::after{content:'';position:absolute;left:50%;width:80px;height:80px;border:2px solid rgba(255,255,255,0.6);border-radius:50%;transform:translateX(-50%)}
-.field-lines::before{top:50%;transform:translate(-50%,-50%);width:100px;height:100px}
-.field-lines::after{display:none}
-.center-line{position:absolute;left:0;right:0;top:50%;height:2px;background:rgba(255,255,255,0.6)}
-.box-top{position:absolute;left:25%;right:25%;top:0;height:18%;border:2px solid rgba(255,255,255,0.6);border-top:none}
-.box-bot{position:absolute;left:25%;right:25%;bottom:0;height:18%;border:2px solid rgba(255,255,255,0.6);border-bottom:none}
-.box-top-small{position:absolute;left:38%;right:38%;top:0;height:8%;border:2px solid rgba(255,255,255,0.6);border-top:none}
-.box-bot-small{position:absolute;left:38%;right:38%;bottom:0;height:8%;border:2px solid rgba(255,255,255,0.6);border-bottom:none}
+.field-wrap{padding:0 12px 12px;display:flex;justify-content:center}
+.field{position:relative;width:100%;max-width:480px;aspect-ratio:0.65;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.4)}
+.field canvas{position:absolute;inset:0;width:100%;height:100%}
+.field-overlay{position:absolute;inset:0}
 
-.player{position:absolute;width:48px;height:60px;transform:translate(-50%,-50%);cursor:grab;user-select:none;display:flex;flex-direction:column;align-items:center;touch-action:none}
-.player:active{cursor:grabbing}
-.jersey{width:42px;height:42px;background:#dc2626;border:2px solid #fff;border-radius:8px 8px 4px 4px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1rem;box-shadow:0 4px 12px rgba(0,0,0,0.3);position:relative}
-.jersey::before{content:'';position:absolute;top:-2px;left:50%;width:14px;height:6px;background:#dc2626;border:2px solid #fff;border-bottom:none;transform:translateX(-50%)}
-.player-name{margin-top:2px;font-size:0.65rem;font-weight:700;color:#fff;background:rgba(0,0,0,0.6);padding:1px 6px;border-radius:8px;white-space:nowrap;max-width:60px;overflow:hidden;text-overflow:ellipsis;text-align:center}
-.player.empty .jersey{background:rgba(255,255,255,0.2);border:2px dashed rgba(255,255,255,0.6);color:rgba(255,255,255,0.8)}
-.player.empty .jersey::before{display:none}
+.player{position:absolute;transform:translate(-50%,-50%);cursor:grab;user-select:none;touch-action:none;display:flex;flex-direction:column;align-items:center;width:68px}
+.player:active{cursor:grabbing;z-index:10}
+.jersey-svg{width:48px;height:50px;filter:drop-shadow(0 4px 6px rgba(0,0,0,0.4))}
+.jersey-num{position:absolute;top:50%;left:50%;transform:translate(-50%,-30%);color:#fff;font-weight:800;font-size:1.05rem;pointer-events:none;text-shadow:0 1px 2px rgba(0,0,0,0.4)}
+.player-wrap{position:relative;width:48px;height:50px}
+.player-name{margin-top:3px;font-size:0.65rem;font-weight:700;color:#fff;background:rgba(0,0,0,0.65);padding:1px 6px;border-radius:8px;white-space:nowrap;max-width:64px;overflow:hidden;text-overflow:ellipsis;text-align:center}
+.player.empty .jersey-num{color:rgba(255,255,255,0.85)}
+.player.empty .player-name{display:none}
 
-/* Controls */
-.controls{display:flex;gap:8px;justify-content:center;margin-top:16px;flex-wrap:wrap}
-.btn{padding:10px 20px;border-radius:50px;border:none;cursor:pointer;font-weight:600;font-size:0.85rem;transition:all 0.2s}
+/* Bottom bar */
+.bottom-bar{padding:10px 16px;border-top:1px solid #2d3748;display:flex;gap:8px;justify-content:space-between;align-items:center}
+.btn{padding:9px 16px;border-radius:50px;border:none;cursor:pointer;font-weight:600;font-size:0.8rem;transition:all 0.2s}
 .btn-primary{background:#16a34a;color:#fff}
 .btn-primary:hover{background:#15803d}
-.btn-secondary{background:#f1f5f9;color:#475569}
-.btn-secondary:hover{background:#e2e8f0}
+.btn-secondary{background:#252b3b;color:#cbd5e1;border:1px solid #2d3748}
+.btn-secondary:hover{background:#2d3748}
 
-/* Mid ad */
-.mid-ad{background:#fff;border-radius:12px;padding:16px;text-align:center;margin:24px auto;max-width:728px;min-height:120px}
+.mid-ad{background:#1a1f2e;border-radius:12px;padding:16px;text-align:center;margin:24px auto;max-width:728px;min-height:120px}
 
-/* CTA section */
-.cta-section{background:linear-gradient(135deg,#16a34a,#15803d);color:#fff;padding:40px 24px;border-radius:16px;text-align:center;margin:24px 0}
+.cta-section{background:linear-gradient(135deg,#16a34a,#15803d);color:#fff;padding:40px 24px;border-radius:16px;text-align:center;margin:24px 16px;max-width:1000px;margin-left:auto;margin-right:auto}
 .cta-section h2{font-size:1.6rem;font-weight:800;margin-bottom:8px}
 .cta-section p{opacity:0.9;margin-bottom:20px}
 .cta-section a{display:inline-block;background:#fff;color:#16a34a;padding:14px 32px;border-radius:50px;text-decoration:none;font-weight:700}
 
-/* Bottom ad */
-.bottom-ad{background:#fff;border-radius:12px;padding:16px;text-align:center;margin:24px auto;max-width:728px;min-height:120px}
-
-footer{text-align:center;padding:24px;color:#94a3b8;font-size:0.85rem;background:#fff;border-top:1px solid #e5e7eb}
+footer{text-align:center;padding:24px;color:#64748b;font-size:0.85rem;background:#0f1419;border-top:1px solid #2d3748}
 footer a{color:#16a34a;text-decoration:none;margin:0 12px}
 
 @media(max-width:1024px){
-  .layout{grid-template-columns:1fr;padding:12px}
+  .layout{grid-template-columns:1fr;padding:8px}
   .sidebar{display:none}
-  .main{padding:14px}
-  h1{font-size:1.4rem}
-  .field-wrap{max-width:380px}
-  .player{width:40px;height:50px}
-  .jersey{width:36px;height:36px;font-size:0.85rem}
-  .player-name{font-size:0.55rem;max-width:50px}
+  .main{border-radius:12px}
 }
 
 /* Modal */
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;align-items:center;justify-content:center;padding:20px}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:200;align-items:center;justify-content:center;padding:20px}
 .modal.show{display:flex}
-.modal-box{background:#fff;border-radius:16px;padding:24px;max-width:400px;width:100%}
-.modal-box h3{margin-bottom:16px}
-.modal-box input{width:100%;padding:10px;border:2px solid #e5e7eb;border-radius:8px;font-size:1rem;margin-bottom:12px}
-.modal-box .modal-buttons{display:flex;gap:8px;justify-content:flex-end}
+.modal-box{background:#1a1f2e;border:1px solid #2d3748;border-radius:16px;padding:24px;max-width:380px;width:100%}
+.modal-box h3{margin-bottom:16px;color:#fff}
+.modal-box label{display:block;font-size:0.8rem;color:#94a3b8;margin-bottom:4px}
+.modal-box input{width:100%;padding:10px;background:#0f1419;border:1px solid #2d3748;border-radius:8px;font-size:1rem;margin-bottom:12px;color:#fff}
+.modal-box .modal-buttons{display:flex;gap:8px;justify-content:flex-end;margin-top:8px}
 </style>
 </head>
 <body>
@@ -109,10 +97,9 @@ footer a{color:#16a34a;text-decoration:none;margin:0 12px}
     <img src="https://gggk720.github.io/coach-soccer/assets/app_icon.png" alt="Icon">
     <span>I am The Coach - Soccer</span>
   </a>
-  <a href="https://play.google.com/store/apps/details?id=com.coachboard.coachboard" class="nav-cta">Download App</a>
+  <a href="https://play.google.com/store/apps/details?id=com.coachboard.coachboard" class="nav-cta">📱 Download App</a>
 </nav>
 
-<!-- Top Banner Ad -->
 <div class="ad-banner">
   <div class="ad-label">Advertisement</div>
   <ins class="adsbygoogle" style="display:block;min-height:90px" data-ad-client="ca-pub-3019627601868983" data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins>
@@ -120,7 +107,6 @@ footer a{color:#16a34a;text-decoration:none;margin:0 12px}
 </div>
 
 <div class="layout">
-  <!-- Left Sidebar Ad -->
   <aside class="sidebar">
     <div class="sidebar-ad">
       <div class="ad-label">Ad</div>
@@ -129,30 +115,37 @@ footer a{color:#16a34a;text-decoration:none;margin:0 12px}
     </div>
   </aside>
 
-  <!-- Main Content -->
   <main class="main">
-    <h1>⚽ Free Soccer Lineup Builder</h1>
-    <p class="subtitle">Drag & drop players. Try formations. No signup.</p>
+    <div class="app-header">
+      <div class="app-title">Quick Lineup</div>
+      <div class="header-actions">
+        <button class="header-btn" onclick="resetLineup()" title="Reset">↻</button>
+        <button class="header-btn" onclick="randomNames()" title="Random">🎲</button>
+        <button class="header-btn" onclick="window.location.href='https://gggk720.github.io/coach-soccer/'" title="Save">💾</button>
+      </div>
+    </div>
 
     <div class="formations" id="formations"></div>
 
-    <div class="field-wrap" id="field">
-      <div class="field-lines"></div>
-      <div class="center-line"></div>
-      <div class="box-top"></div>
-      <div class="box-bot"></div>
-      <div class="box-top-small"></div>
-      <div class="box-bot-small"></div>
+    <div class="player-count">
+      <span id="count-text">0/11 players</span>
+      <span>Tap slot to add • Drag to move</span>
     </div>
 
-    <div class="controls">
+    <div class="field-wrap">
+      <div class="field" id="field">
+        <canvas id="field-canvas"></canvas>
+        <div class="field-overlay" id="overlay"></div>
+      </div>
+    </div>
+
+    <div class="bottom-bar">
       <button class="btn btn-secondary" onclick="resetLineup()">Reset</button>
       <button class="btn btn-secondary" onclick="randomNames()">Random Names</button>
-      <button class="btn btn-primary" onclick="window.location.href='https://gggk720.github.io/coach-soccer/'">💾 Save Lineup</button>
+      <button class="btn btn-primary" onclick="window.location.href='https://gggk720.github.io/coach-soccer/'">Save Lineup →</button>
     </div>
   </main>
 
-  <!-- Right Sidebar Ad -->
   <aside class="sidebar">
     <div class="sidebar-ad">
       <div class="ad-label">Ad</div>
@@ -162,23 +155,19 @@ footer a{color:#16a34a;text-decoration:none;margin:0 12px}
   </aside>
 </div>
 
-<!-- Mid Ad -->
 <div class="mid-ad">
   <div class="ad-label">Advertisement</div>
   <ins class="adsbygoogle" style="display:block;min-height:90px" data-ad-client="ca-pub-3019627601868983" data-ad-slot="4444444444" data-ad-format="auto" data-full-width-responsive="true"></ins>
   <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 </div>
 
-<div style="max-width:1100px;margin:0 auto;padding:0 24px">
-  <div class="cta-section">
-    <h2>Want More Features?</h2>
-    <p>Save lineups, track matches, draw tactics, manage your team & much more</p>
-    <a href="https://gggk720.github.io/coach-soccer/">Get the Full App →</a>
-  </div>
+<div class="cta-section">
+  <h2>Want More Features?</h2>
+  <p>Save lineups, draw tactics, track matches, manage your team & much more</p>
+  <a href="https://gggk720.github.io/coach-soccer/">Get the Full App →</a>
 </div>
 
-<!-- Bottom Ad -->
-<div class="bottom-ad">
+<div class="mid-ad">
   <div class="ad-label">Advertisement</div>
   <ins class="adsbygoogle" style="display:block;min-height:90px" data-ad-client="ca-pub-3019627601868983" data-ad-slot="5555555555" data-ad-format="auto" data-full-width-responsive="true"></ins>
   <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
@@ -191,11 +180,12 @@ footer a{color:#16a34a;text-decoration:none;margin:0 12px}
   <p style="margin-top:8px">2026 I am The Coach. All rights reserved.</p>
 </footer>
 
-<!-- Edit Modal -->
 <div class="modal" id="modal">
   <div class="modal-box">
     <h3>Edit Player</h3>
+    <label>Name</label>
     <input type="text" id="modal-name" placeholder="Player name" maxlength="14">
+    <label>Number</label>
     <input type="number" id="modal-number" placeholder="Number" min="1" max="99">
     <div class="modal-buttons">
       <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
@@ -206,43 +196,91 @@ footer a{color:#16a34a;text-decoration:none;margin:0 12px}
 
 <script>
 const FORMATIONS = {
-  '4-4-2': [
-    {label:'GK',x:0.5,y:0.91},{label:'LB',x:0.12,y:0.73},{label:'CB',x:0.35,y:0.77},{label:'CB',x:0.65,y:0.77},{label:'RB',x:0.88,y:0.73},
-    {label:'LM',x:0.12,y:0.49},{label:'CM',x:0.35,y:0.52},{label:'CM',x:0.65,y:0.52},{label:'RM',x:0.88,y:0.49},
-    {label:'ST',x:0.35,y:0.22},{label:'ST',x:0.65,y:0.22}
-  ],
-  '4-3-3': [
-    {label:'GK',x:0.5,y:0.91},{label:'LB',x:0.12,y:0.73},{label:'CB',x:0.35,y:0.77},{label:'CB',x:0.65,y:0.77},{label:'RB',x:0.88,y:0.73},
-    {label:'CM',x:0.25,y:0.52},{label:'CM',x:0.5,y:0.48},{label:'CM',x:0.75,y:0.52},
-    {label:'LW',x:0.15,y:0.24},{label:'ST',x:0.5,y:0.17},{label:'RW',x:0.85,y:0.24}
-  ],
-  '3-5-2': [
-    {label:'GK',x:0.5,y:0.91},{label:'CB',x:0.25,y:0.77},{label:'CB',x:0.5,y:0.8},{label:'CB',x:0.75,y:0.77},
-    {label:'LWB',x:0.08,y:0.52},{label:'CM',x:0.3,y:0.52},{label:'CM',x:0.5,y:0.46},{label:'CM',x:0.7,y:0.52},{label:'RWB',x:0.92,y:0.52},
-    {label:'ST',x:0.35,y:0.2},{label:'ST',x:0.65,y:0.2}
-  ],
-  '4-2-3-1': [
-    {label:'GK',x:0.5,y:0.91},{label:'LB',x:0.12,y:0.73},{label:'CB',x:0.35,y:0.77},{label:'CB',x:0.65,y:0.77},{label:'RB',x:0.88,y:0.73},
-    {label:'CDM',x:0.35,y:0.6},{label:'CDM',x:0.65,y:0.6},
-    {label:'CAM',x:0.5,y:0.4},{label:'LW',x:0.15,y:0.32},{label:'RW',x:0.85,y:0.32},
-    {label:'ST',x:0.5,y:0.17}
-  ],
-  '5-3-2': [
-    {label:'GK',x:0.5,y:0.91},{label:'LWB',x:0.08,y:0.7},{label:'CB',x:0.28,y:0.78},{label:'CB',x:0.5,y:0.8},{label:'CB',x:0.72,y:0.78},{label:'RWB',x:0.92,y:0.7},
-    {label:'CM',x:0.3,y:0.5},{label:'CM',x:0.5,y:0.46},{label:'CM',x:0.7,y:0.5},
-    {label:'ST',x:0.35,y:0.2},{label:'ST',x:0.65,y:0.2}
-  ]
+  '4-4-2':[{l:'GK',x:0.5,y:0.91},{l:'LB',x:0.12,y:0.73},{l:'CB',x:0.35,y:0.77},{l:'CB',x:0.65,y:0.77},{l:'RB',x:0.88,y:0.73},{l:'LM',x:0.12,y:0.49},{l:'CM',x:0.35,y:0.52},{l:'CM',x:0.65,y:0.52},{l:'RM',x:0.88,y:0.49},{l:'ST',x:0.35,y:0.22},{l:'ST',x:0.65,y:0.22}],
+  '4-3-3':[{l:'GK',x:0.5,y:0.91},{l:'LB',x:0.12,y:0.73},{l:'CB',x:0.35,y:0.77},{l:'CB',x:0.65,y:0.77},{l:'RB',x:0.88,y:0.73},{l:'CM',x:0.25,y:0.52},{l:'CM',x:0.5,y:0.48},{l:'CM',x:0.75,y:0.52},{l:'LW',x:0.15,y:0.24},{l:'ST',x:0.5,y:0.17},{l:'RW',x:0.85,y:0.24}],
+  '3-5-2':[{l:'GK',x:0.5,y:0.91},{l:'CB',x:0.25,y:0.77},{l:'CB',x:0.5,y:0.8},{l:'CB',x:0.75,y:0.77},{l:'LWB',x:0.08,y:0.52},{l:'CM',x:0.3,y:0.52},{l:'CM',x:0.5,y:0.46},{l:'CM',x:0.7,y:0.52},{l:'RWB',x:0.92,y:0.52},{l:'ST',x:0.35,y:0.2},{l:'ST',x:0.65,y:0.2}],
+  '4-2-3-1':[{l:'GK',x:0.5,y:0.91},{l:'LB',x:0.12,y:0.73},{l:'CB',x:0.35,y:0.77},{l:'CB',x:0.65,y:0.77},{l:'RB',x:0.88,y:0.73},{l:'CDM',x:0.35,y:0.6},{l:'CDM',x:0.65,y:0.6},{l:'CAM',x:0.5,y:0.4},{l:'LW',x:0.15,y:0.32},{l:'RW',x:0.85,y:0.32},{l:'ST',x:0.5,y:0.17}],
+  '5-3-2':[{l:'GK',x:0.5,y:0.91},{l:'LWB',x:0.08,y:0.7},{l:'CB',x:0.28,y:0.78},{l:'CB',x:0.5,y:0.8},{l:'CB',x:0.72,y:0.78},{l:'RWB',x:0.92,y:0.7},{l:'CM',x:0.3,y:0.5},{l:'CM',x:0.5,y:0.46},{l:'CM',x:0.7,y:0.5},{l:'ST',x:0.35,y:0.2},{l:'ST',x:0.65,y:0.2}],
+  '4-1-4-1':[{l:'GK',x:0.5,y:0.91},{l:'LB',x:0.12,y:0.73},{l:'CB',x:0.35,y:0.77},{l:'CB',x:0.65,y:0.77},{l:'RB',x:0.88,y:0.73},{l:'CDM',x:0.5,y:0.6},{l:'LM',x:0.12,y:0.42},{l:'CM',x:0.35,y:0.42},{l:'CM',x:0.65,y:0.42},{l:'RM',x:0.88,y:0.42},{l:'ST',x:0.5,y:0.18}]
 };
 
-const NAMES = ['Messi','Ronaldo','Mbappe','Haaland','Salah','Kane','Bellingham','De Bruyne','Modric','Vinicius','Pedri','Rodri','Foden','Lewandowski','Saka','Bruno','Son','Neymar','Lautaro','Rashford'];
+const NAMES = ['Messi','Ronaldo','Mbappe','Haaland','Salah','Kane','Bellingham','De Bruyne','Modric','Vinicius','Pedri','Rodri','Foden','Lewandowski','Saka','Bruno','Son','Neymar','Lautaro','Rashford','Griezmann','Benzema','Suarez','Dybala','Cavani'];
 
 let currentFormation = '4-4-2';
 let players = {};
 let editingIdx = null;
 let dragState = null;
 
+function drawField(){
+  const canvas = document.getElementById('field-canvas');
+  const rect = canvas.parentElement.getBoundingClientRect();
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = rect.width * dpr;
+  canvas.height = rect.height * dpr;
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+  const w = rect.width, h = rect.height;
+
+  // Field background with stripes
+  const stripes = 12;
+  const sh = h / stripes;
+  for(let i = 0; i < stripes; i++){
+    ctx.fillStyle = i % 2 === 0 ? '#16a34a' : '#15803d';
+    ctx.fillRect(0, i*sh, w, sh);
+  }
+
+  // Lines
+  ctx.strokeStyle = 'rgba(255,255,255,0.85)';
+  ctx.lineWidth = 1.5;
+  const m = w * 0.05;
+
+  // Outer
+  ctx.strokeRect(m, m, w-m*2, h-m*2);
+  // Center line
+  ctx.beginPath();
+  ctx.moveTo(m, h/2);
+  ctx.lineTo(w-m, h/2);
+  ctx.stroke();
+  // Center circle
+  ctx.beginPath();
+  ctx.arc(w/2, h/2, w*0.14, 0, Math.PI*2);
+  ctx.stroke();
+  // Center dot
+  ctx.fillStyle = 'rgba(255,255,255,0.85)';
+  ctx.beginPath();
+  ctx.arc(w/2, h/2, 2.5, 0, Math.PI*2);
+  ctx.fill();
+
+  // Penalty areas
+  const pw = w*0.44, ph = h*0.16;
+  ctx.strokeRect((w-pw)/2, m, pw, ph);
+  ctx.strokeRect((w-pw)/2, h-m-ph, pw, ph);
+  // Goal areas
+  const gw = w*0.22, gh = h*0.06;
+  ctx.strokeRect((w-gw)/2, m, gw, gh);
+  ctx.strokeRect((w-gw)/2, h-m-gh, gw, gh);
+
+  // Penalty arcs
+  ctx.beginPath();
+  ctx.arc(w/2, m+ph, w*0.08, 0, Math.PI);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(w/2, h-m-ph, w*0.08, Math.PI, Math.PI*2);
+  ctx.stroke();
+}
+
+function jerseySvg(num, isEmpty){
+  const fillColor = isEmpty ? 'transparent' : '#dc2626';
+  const strokeColor = isEmpty ? 'rgba(255,255,255,0.6)' : '#dc2626';
+  const strokeWidth = isEmpty ? 2 : 0;
+  const dash = isEmpty ? 'stroke-dasharray="3,3"' : '';
+  return `<svg class="jersey-svg" viewBox="0 0 100 105" xmlns="http://www.w3.org/2000/svg">
+    <path d="M37 0 L2 14 L2 35 L22 35 L22 100 L78 100 L78 35 L98 35 L98 14 L63 0 L50 10 L37 0 Z"
+      fill="${fillColor}" stroke="${strokeColor}" stroke-width="${strokeWidth}" ${dash}/>
+  </svg>`;
+}
+
 function init(){
-  // Build formation buttons
   const fc = document.getElementById('formations');
   Object.keys(FORMATIONS).forEach(name=>{
     const btn = document.createElement('button');
@@ -251,7 +289,9 @@ function init(){
     btn.onclick = ()=>setFormation(name);
     fc.appendChild(btn);
   });
-  buildField();
+  drawField();
+  buildOverlay();
+  window.addEventListener('resize', ()=>{ drawField(); buildOverlay(); });
 }
 
 function setFormation(name){
@@ -260,51 +300,53 @@ function setFormation(name){
   document.querySelectorAll('.formation-btn').forEach(b=>{
     b.classList.toggle('active', b.textContent===name);
   });
-  buildField();
+  buildOverlay();
 }
 
-function buildField(){
-  const field = document.getElementById('field');
-  field.querySelectorAll('.player').forEach(el=>el.remove());
+function buildOverlay(){
+  const overlay = document.getElementById('overlay');
+  overlay.innerHTML = '';
   const slots = FORMATIONS[currentFormation];
+  let filled = 0;
   slots.forEach((slot,idx)=>{
     const el = document.createElement('div');
-    el.className = 'player' + (players[idx]?'':' empty');
+    const p = players[idx];
+    const isEmpty = !p;
+    if(p) filled++;
+    el.className = 'player' + (isEmpty?' empty':'');
     el.style.left = (slot.x*100)+'%';
     el.style.top = (slot.y*100)+'%';
-    const p = players[idx] || {name:slot.label,number:''};
-    el.innerHTML = '<div class="jersey">'+(p.number||'+')+'</div><div class="player-name">'+p.name+'</div>';
+    const num = isEmpty ? slot.l : (p.number || (idx+1));
+    el.innerHTML = `<div class="player-wrap">${jerseySvg(num, isEmpty)}<div class="jersey-num">${num}</div></div>${!isEmpty?'<div class="player-name">'+p.name+'</div>':''}`;
     el.dataset.idx = idx;
-    el.onclick = (e)=>{ if(!dragState||!dragState.moved) openEdit(idx); };
-    addDrag(el, slot, idx);
-    field.appendChild(el);
+    el.onclick = ()=>{ if(!dragState||!dragState.moved) openEdit(idx); };
+    addDrag(el);
+    overlay.appendChild(el);
   });
+  document.getElementById('count-text').textContent = `${filled}/${slots.length} players`;
 }
 
-function addDrag(el, slot, idx){
-  function start(clientX, clientY){
-    const fieldRect = document.getElementById('field').getBoundingClientRect();
-    dragState = {el, idx, slot, fieldRect, moved:false, startX:clientX, startY:clientY};
+function addDrag(el){
+  function start(cx, cy){
+    const fr = document.getElementById('field').getBoundingClientRect();
+    dragState = {el, fr, moved:false, sx:cx, sy:cy};
   }
-  function move(clientX, clientY){
+  function move(cx, cy){
     if(!dragState) return;
-    const dx = clientX - dragState.startX;
-    const dy = clientY - dragState.startY;
+    const dx = cx - dragState.sx, dy = cy - dragState.sy;
     if(Math.abs(dx)>3 || Math.abs(dy)>3) dragState.moved = true;
     if(dragState.moved){
-      const newX = (clientX - dragState.fieldRect.left) / dragState.fieldRect.width;
-      const newY = (clientY - dragState.fieldRect.top) / dragState.fieldRect.height;
-      dragState.el.style.left = Math.max(0.05, Math.min(0.95, newX))*100+'%';
-      dragState.el.style.top = Math.max(0.05, Math.min(0.95, newY))*100+'%';
+      const nx = (cx - dragState.fr.left) / dragState.fr.width;
+      const ny = (cy - dragState.fr.top) / dragState.fr.height;
+      dragState.el.style.left = Math.max(0.05, Math.min(0.95, nx))*100+'%';
+      dragState.el.style.top = Math.max(0.05, Math.min(0.95, ny))*100+'%';
     }
   }
-  function end(){
-    setTimeout(()=>{ dragState = null; }, 50);
-  }
-  el.addEventListener('mousedown', e=>{e.preventDefault();start(e.clientX, e.clientY)});
-  el.addEventListener('touchstart', e=>{const t=e.touches[0];start(t.clientX, t.clientY)},{passive:true});
-  document.addEventListener('mousemove', e=>move(e.clientX, e.clientY));
-  document.addEventListener('touchmove', e=>{if(dragState){const t=e.touches[0];move(t.clientX, t.clientY);e.preventDefault()}},{passive:false});
+  function end(){ setTimeout(()=>{ dragState = null; }, 50); }
+  el.addEventListener('mousedown', e=>{e.preventDefault();start(e.clientX,e.clientY)});
+  el.addEventListener('touchstart', e=>{const t=e.touches[0];start(t.clientX,t.clientY)},{passive:true});
+  document.addEventListener('mousemove', e=>move(e.clientX,e.clientY));
+  document.addEventListener('touchmove', e=>{if(dragState){const t=e.touches[0];move(t.clientX,t.clientY);e.preventDefault()}},{passive:false});
   document.addEventListener('mouseup', end);
   document.addEventListener('touchend', end);
 }
@@ -326,12 +368,12 @@ function savePlayer(){
   const number = document.getElementById('modal-number').value || (editingIdx+1);
   players[editingIdx] = {name, number};
   closeModal();
-  buildField();
+  buildOverlay();
 }
 
 function resetLineup(){
   players = {};
-  buildField();
+  buildOverlay();
 }
 
 function randomNames(){
@@ -340,7 +382,7 @@ function randomNames(){
   slots.forEach((slot,idx)=>{
     players[idx] = {name:shuffled[idx]||'Player', number:idx+1};
   });
-  buildField();
+  buildOverlay();
 }
 
 init();
