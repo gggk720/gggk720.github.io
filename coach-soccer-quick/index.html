@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Soccer Lineup Builder Online | I am The Coach</title>
+<meta name="description" content="Free online soccer lineup builder. Drag & drop players, choose 4-4-2, 4-3-3, 3-5-2 formations. No download needed.">
+<link rel="icon" type="image/png" href="https://gggk720.github.io/coach-soccer/assets/app_icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3019627601868983" crossorigin="anonymous"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,sans-serif;background:#f5f5fa;color:#1a1a2e}
+
+/* Top nav */
+nav{background:#fff;border-bottom:1px solid #e5e7eb;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#1a1a2e}
+.nav-brand img{width:32px;height:32px;border-radius:8px}
+.nav-brand span{font-weight:700}
+.nav-cta{background:#16a34a;color:#fff;padding:8px 18px;border-radius:50px;text-decoration:none;font-size:0.85rem;font-weight:600}
+
+/* Top ad banner */
+.ad-banner{background:#fff;padding:12px;text-align:center;border-bottom:1px solid #e5e7eb;min-height:100px}
+.ad-label{font-size:0.7rem;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+
+/* Main layout */
+.layout{display:grid;grid-template-columns:200px 1fr 200px;gap:16px;max-width:1400px;margin:0 auto;padding:16px}
+.sidebar{display:flex;flex-direction:column;gap:16px}
+.sidebar-ad{background:#fff;border-radius:12px;padding:12px;text-align:center;min-height:600px}
+.main{background:#fff;border-radius:16px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+
+/* Title */
+h1{font-size:1.8rem;font-weight:800;margin-bottom:6px;text-align:center}
+.subtitle{text-align:center;color:#64748b;font-size:0.95rem;margin-bottom:20px}
+
+/* Formation selector */
+.formations{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:16px}
+.formation-btn{background:#f1f5f9;border:2px solid transparent;padding:8px 16px;border-radius:50px;font-weight:600;font-size:0.85rem;cursor:pointer;color:#475569;transition:all 0.2s}
+.formation-btn:hover{background:#e2e8f0}
+.formation-btn.active{background:#16a34a;color:#fff;border-color:#16a34a}
+
+/* Field */
+.field-wrap{position:relative;max-width:520px;margin:0 auto;aspect-ratio:0.66;background:linear-gradient(180deg,#22c55e 0%,#16a34a 50%,#15803d 100%);border-radius:12px;border:3px solid #fff;box-shadow:0 8px 24px rgba(0,0,0,0.15);overflow:hidden}
+.field-lines{position:absolute;inset:0;pointer-events:none}
+.field-lines::before,.field-lines::after{content:'';position:absolute;left:50%;width:80px;height:80px;border:2px solid rgba(255,255,255,0.6);border-radius:50%;transform:translateX(-50%)}
+.field-lines::before{top:50%;transform:translate(-50%,-50%);width:100px;height:100px}
+.field-lines::after{display:none}
+.center-line{position:absolute;left:0;right:0;top:50%;height:2px;background:rgba(255,255,255,0.6)}
+.box-top{position:absolute;left:25%;right:25%;top:0;height:18%;border:2px solid rgba(255,255,255,0.6);border-top:none}
+.box-bot{position:absolute;left:25%;right:25%;bottom:0;height:18%;border:2px solid rgba(255,255,255,0.6);border-bottom:none}
+.box-top-small{position:absolute;left:38%;right:38%;top:0;height:8%;border:2px solid rgba(255,255,255,0.6);border-top:none}
+.box-bot-small{position:absolute;left:38%;right:38%;bottom:0;height:8%;border:2px solid rgba(255,255,255,0.6);border-bottom:none}
+
+.player{position:absolute;width:48px;height:60px;transform:translate(-50%,-50%);cursor:grab;user-select:none;display:flex;flex-direction:column;align-items:center;touch-action:none}
+.player:active{cursor:grabbing}
+.jersey{width:42px;height:42px;background:#dc2626;border:2px solid #fff;border-radius:8px 8px 4px 4px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1rem;box-shadow:0 4px 12px rgba(0,0,0,0.3);position:relative}
+.jersey::before{content:'';position:absolute;top:-2px;left:50%;width:14px;height:6px;background:#dc2626;border:2px solid #fff;border-bottom:none;transform:translateX(-50%)}
+.player-name{margin-top:2px;font-size:0.65rem;font-weight:700;color:#fff;background:rgba(0,0,0,0.6);padding:1px 6px;border-radius:8px;white-space:nowrap;max-width:60px;overflow:hidden;text-overflow:ellipsis;text-align:center}
+.player.empty .jersey{background:rgba(255,255,255,0.2);border:2px dashed rgba(255,255,255,0.6);color:rgba(255,255,255,0.8)}
+.player.empty .jersey::before{display:none}
+
+/* Controls */
+.controls{display:flex;gap:8px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.btn{padding:10px 20px;border-radius:50px;border:none;cursor:pointer;font-weight:600;font-size:0.85rem;transition:all 0.2s}
+.btn-primary{background:#16a34a;color:#fff}
+.btn-primary:hover{background:#15803d}
+.btn-secondary{background:#f1f5f9;color:#475569}
+.btn-secondary:hover{background:#e2e8f0}
+
+/* Mid ad */
+.mid-ad{background:#fff;border-radius:12px;padding:16px;text-align:center;margin:24px auto;max-width:728px;min-height:120px}
+
+/* CTA section */
+.cta-section{background:linear-gradient(135deg,#16a34a,#15803d);color:#fff;padding:40px 24px;border-radius:16px;text-align:center;margin:24px 0}
+.cta-section h2{font-size:1.6rem;font-weight:800;margin-bottom:8px}
+.cta-section p{opacity:0.9;margin-bottom:20px}
+.cta-section a{display:inline-block;background:#fff;color:#16a34a;padding:14px 32px;border-radius:50px;text-decoration:none;font-weight:700}
+
+/* Bottom ad */
+.bottom-ad{background:#fff;border-radius:12px;padding:16px;text-align:center;margin:24px auto;max-width:728px;min-height:120px}
+
+footer{text-align:center;padding:24px;color:#94a3b8;font-size:0.85rem;background:#fff;border-top:1px solid #e5e7eb}
+footer a{color:#16a34a;text-decoration:none;margin:0 12px}
+
+@media(max-width:1024px){
+  .layout{grid-template-columns:1fr;padding:12px}
+  .sidebar{display:none}
+  .main{padding:14px}
+  h1{font-size:1.4rem}
+  .field-wrap{max-width:380px}
+  .player{width:40px;height:50px}
+  .jersey{width:36px;height:36px;font-size:0.85rem}
+  .player-name{font-size:0.55rem;max-width:50px}
+}
+
+/* Modal */
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;align-items:center;justify-content:center;padding:20px}
+.modal.show{display:flex}
+.modal-box{background:#fff;border-radius:16px;padding:24px;max-width:400px;width:100%}
+.modal-box h3{margin-bottom:16px}
+.modal-box input{width:100%;padding:10px;border:2px solid #e5e7eb;border-radius:8px;font-size:1rem;margin-bottom:12px}
+.modal-box .modal-buttons{display:flex;gap:8px;justify-content:flex-end}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://gggk720.github.io/coach-soccer/" class="nav-brand">
+    <img src="https://gggk720.github.io/coach-soccer/assets/app_icon.png" alt="Icon">
+    <span>I am The Coach - Soccer</span>
+  </a>
+  <a href="https://play.google.com/store/apps/details?id=com.coachboard.coachboard" class="nav-cta">Download App</a>
+</nav>
+
+<!-- Top Banner Ad -->
+<div class="ad-banner">
+  <div class="ad-label">Advertisement</div>
+  <ins class="adsbygoogle" style="display:block;min-height:90px" data-ad-client="ca-pub-3019627601868983" data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+
+<div class="layout">
+  <!-- Left Sidebar Ad -->
+  <aside class="sidebar">
+    <div class="sidebar-ad">
+      <div class="ad-label">Ad</div>
+      <ins class="adsbygoogle" style="display:block;min-height:600px" data-ad-client="ca-pub-3019627601868983" data-ad-slot="2222222222" data-ad-format="vertical"></ins>
+      <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main">
+    <h1>⚽ Free Soccer Lineup Builder</h1>
+    <p class="subtitle">Drag & drop players. Try formations. No signup.</p>
+
+    <div class="formations" id="formations"></div>
+
+    <div class="field-wrap" id="field">
+      <div class="field-lines"></div>
+      <div class="center-line"></div>
+      <div class="box-top"></div>
+      <div class="box-bot"></div>
+      <div class="box-top-small"></div>
+      <div class="box-bot-small"></div>
+    </div>
+
+    <div class="controls">
+      <button class="btn btn-secondary" onclick="resetLineup()">Reset</button>
+      <button class="btn btn-secondary" onclick="randomNames()">Random Names</button>
+      <button class="btn btn-primary" onclick="window.location.href='https://gggk720.github.io/coach-soccer/'">💾 Save Lineup</button>
+    </div>
+  </main>
+
+  <!-- Right Sidebar Ad -->
+  <aside class="sidebar">
+    <div class="sidebar-ad">
+      <div class="ad-label">Ad</div>
+      <ins class="adsbygoogle" style="display:block;min-height:600px" data-ad-client="ca-pub-3019627601868983" data-ad-slot="3333333333" data-ad-format="vertical"></ins>
+      <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+    </div>
+  </aside>
+</div>
+
+<!-- Mid Ad -->
+<div class="mid-ad">
+  <div class="ad-label">Advertisement</div>
+  <ins class="adsbygoogle" style="display:block;min-height:90px" data-ad-client="ca-pub-3019627601868983" data-ad-slot="4444444444" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+
+<div style="max-width:1100px;margin:0 auto;padding:0 24px">
+  <div class="cta-section">
+    <h2>Want More Features?</h2>
+    <p>Save lineups, track matches, draw tactics, manage your team & much more</p>
+    <a href="https://gggk720.github.io/coach-soccer/">Get the Full App →</a>
+  </div>
+</div>
+
+<!-- Bottom Ad -->
+<div class="bottom-ad">
+  <div class="ad-label">Advertisement</div>
+  <ins class="adsbygoogle" style="display:block;min-height:90px" data-ad-client="ca-pub-3019627601868983" data-ad-slot="5555555555" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+
+<footer>
+  <a href="https://gggk720.github.io/the-coach/">All Sports</a>
+  <a href="https://gggk720.github.io/coach-soccer/">Soccer App</a>
+  <a href="https://gggk720.github.io/coachboard-privacy/">Privacy</a>
+  <p style="margin-top:8px">2026 I am The Coach. All rights reserved.</p>
+</footer>
+
+<!-- Edit Modal -->
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <h3>Edit Player</h3>
+    <input type="text" id="modal-name" placeholder="Player name" maxlength="14">
+    <input type="number" id="modal-number" placeholder="Number" min="1" max="99">
+    <div class="modal-buttons">
+      <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="savePlayer()">Save</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const FORMATIONS = {
+  '4-4-2': [
+    {label:'GK',x:0.5,y:0.91},{label:'LB',x:0.12,y:0.73},{label:'CB',x:0.35,y:0.77},{label:'CB',x:0.65,y:0.77},{label:'RB',x:0.88,y:0.73},
+    {label:'LM',x:0.12,y:0.49},{label:'CM',x:0.35,y:0.52},{label:'CM',x:0.65,y:0.52},{label:'RM',x:0.88,y:0.49},
+    {label:'ST',x:0.35,y:0.22},{label:'ST',x:0.65,y:0.22}
+  ],
+  '4-3-3': [
+    {label:'GK',x:0.5,y:0.91},{label:'LB',x:0.12,y:0.73},{label:'CB',x:0.35,y:0.77},{label:'CB',x:0.65,y:0.77},{label:'RB',x:0.88,y:0.73},
+    {label:'CM',x:0.25,y:0.52},{label:'CM',x:0.5,y:0.48},{label:'CM',x:0.75,y:0.52},
+    {label:'LW',x:0.15,y:0.24},{label:'ST',x:0.5,y:0.17},{label:'RW',x:0.85,y:0.24}
+  ],
+  '3-5-2': [
+    {label:'GK',x:0.5,y:0.91},{label:'CB',x:0.25,y:0.77},{label:'CB',x:0.5,y:0.8},{label:'CB',x:0.75,y:0.77},
+    {label:'LWB',x:0.08,y:0.52},{label:'CM',x:0.3,y:0.52},{label:'CM',x:0.5,y:0.46},{label:'CM',x:0.7,y:0.52},{label:'RWB',x:0.92,y:0.52},
+    {label:'ST',x:0.35,y:0.2},{label:'ST',x:0.65,y:0.2}
+  ],
+  '4-2-3-1': [
+    {label:'GK',x:0.5,y:0.91},{label:'LB',x:0.12,y:0.73},{label:'CB',x:0.35,y:0.77},{label:'CB',x:0.65,y:0.77},{label:'RB',x:0.88,y:0.73},
+    {label:'CDM',x:0.35,y:0.6},{label:'CDM',x:0.65,y:0.6},
+    {label:'CAM',x:0.5,y:0.4},{label:'LW',x:0.15,y:0.32},{label:'RW',x:0.85,y:0.32},
+    {label:'ST',x:0.5,y:0.17}
+  ],
+  '5-3-2': [
+    {label:'GK',x:0.5,y:0.91},{label:'LWB',x:0.08,y:0.7},{label:'CB',x:0.28,y:0.78},{label:'CB',x:0.5,y:0.8},{label:'CB',x:0.72,y:0.78},{label:'RWB',x:0.92,y:0.7},
+    {label:'CM',x:0.3,y:0.5},{label:'CM',x:0.5,y:0.46},{label:'CM',x:0.7,y:0.5},
+    {label:'ST',x:0.35,y:0.2},{label:'ST',x:0.65,y:0.2}
+  ]
+};
+
+const NAMES = ['Messi','Ronaldo','Mbappe','Haaland','Salah','Kane','Bellingham','De Bruyne','Modric','Vinicius','Pedri','Rodri','Foden','Lewandowski','Saka','Bruno','Son','Neymar','Lautaro','Rashford'];
+
+let currentFormation = '4-4-2';
+let players = {};
+let editingIdx = null;
+let dragState = null;
+
+function init(){
+  // Build formation buttons
+  const fc = document.getElementById('formations');
+  Object.keys(FORMATIONS).forEach(name=>{
+    const btn = document.createElement('button');
+    btn.className = 'formation-btn' + (name===currentFormation?' active':'');
+    btn.textContent = name;
+    btn.onclick = ()=>setFormation(name);
+    fc.appendChild(btn);
+  });
+  buildField();
+}
+
+function setFormation(name){
+  currentFormation = name;
+  players = {};
+  document.querySelectorAll('.formation-btn').forEach(b=>{
+    b.classList.toggle('active', b.textContent===name);
+  });
+  buildField();
+}
+
+function buildField(){
+  const field = document.getElementById('field');
+  field.querySelectorAll('.player').forEach(el=>el.remove());
+  const slots = FORMATIONS[currentFormation];
+  slots.forEach((slot,idx)=>{
+    const el = document.createElement('div');
+    el.className = 'player' + (players[idx]?'':' empty');
+    el.style.left = (slot.x*100)+'%';
+    el.style.top = (slot.y*100)+'%';
+    const p = players[idx] || {name:slot.label,number:''};
+    el.innerHTML = '<div class="jersey">'+(p.number||'+')+'</div><div class="player-name">'+p.name+'</div>';
+    el.dataset.idx = idx;
+    el.onclick = (e)=>{ if(!dragState||!dragState.moved) openEdit(idx); };
+    addDrag(el, slot, idx);
+    field.appendChild(el);
+  });
+}
+
+function addDrag(el, slot, idx){
+  function start(clientX, clientY){
+    const fieldRect = document.getElementById('field').getBoundingClientRect();
+    dragState = {el, idx, slot, fieldRect, moved:false, startX:clientX, startY:clientY};
+  }
+  function move(clientX, clientY){
+    if(!dragState) return;
+    const dx = clientX - dragState.startX;
+    const dy = clientY - dragState.startY;
+    if(Math.abs(dx)>3 || Math.abs(dy)>3) dragState.moved = true;
+    if(dragState.moved){
+      const newX = (clientX - dragState.fieldRect.left) / dragState.fieldRect.width;
+      const newY = (clientY - dragState.fieldRect.top) / dragState.fieldRect.height;
+      dragState.el.style.left = Math.max(0.05, Math.min(0.95, newX))*100+'%';
+      dragState.el.style.top = Math.max(0.05, Math.min(0.95, newY))*100+'%';
+    }
+  }
+  function end(){
+    setTimeout(()=>{ dragState = null; }, 50);
+  }
+  el.addEventListener('mousedown', e=>{e.preventDefault();start(e.clientX, e.clientY)});
+  el.addEventListener('touchstart', e=>{const t=e.touches[0];start(t.clientX, t.clientY)},{passive:true});
+  document.addEventListener('mousemove', e=>move(e.clientX, e.clientY));
+  document.addEventListener('touchmove', e=>{if(dragState){const t=e.touches[0];move(t.clientX, t.clientY);e.preventDefault()}},{passive:false});
+  document.addEventListener('mouseup', end);
+  document.addEventListener('touchend', end);
+}
+
+function openEdit(idx){
+  editingIdx = idx;
+  const p = players[idx] || {};
+  document.getElementById('modal-name').value = p.name || '';
+  document.getElementById('modal-number').value = p.number || '';
+  document.getElementById('modal').classList.add('show');
+}
+
+function closeModal(){
+  document.getElementById('modal').classList.remove('show');
+}
+
+function savePlayer(){
+  const name = document.getElementById('modal-name').value.trim() || 'Player';
+  const number = document.getElementById('modal-number').value || (editingIdx+1);
+  players[editingIdx] = {name, number};
+  closeModal();
+  buildField();
+}
+
+function resetLineup(){
+  players = {};
+  buildField();
+}
+
+function randomNames(){
+  const slots = FORMATIONS[currentFormation];
+  const shuffled = [...NAMES].sort(()=>Math.random()-0.5);
+  slots.forEach((slot,idx)=>{
+    players[idx] = {name:shuffled[idx]||'Player', number:idx+1};
+  });
+  buildField();
+}
+
+init();
+</script>
+
+</body>
+</html>
