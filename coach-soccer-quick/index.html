@@ -10,94 +10,96 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3019627601868983" crossorigin="anonymous"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',-apple-system,sans-serif;background:#0f1419;color:#e2e8f0}
+body{font-family:'Inter',-apple-system,sans-serif;background:#0d1117;color:#e2e8f0}
 
-nav{background:#1a1f2e;border-bottom:1px solid #2d3748;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
-.nav-brand img{width:32px;height:32px;border-radius:8px}
-.nav-brand span{font-weight:700}
-.nav-cta{background:#16a34a;color:#fff;padding:8px 18px;border-radius:50px;text-decoration:none;font-size:0.85rem;font-weight:600}
+/* Top web nav */
+.web-nav{background:#161b22;border-bottom:1px solid #21262d;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.web-nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
+.web-nav-brand img{width:32px;height:32px;border-radius:8px}
+.web-nav-brand span{font-weight:700}
+.web-nav-cta{background:#22c55e;color:#fff;padding:8px 18px;border-radius:50px;text-decoration:none;font-size:0.85rem;font-weight:600}
 
-.ad-banner{background:#1a1f2e;padding:12px;text-align:center;border-bottom:1px solid #2d3748}
+.ad-banner{background:#161b22;padding:12px;text-align:center;border-bottom:1px solid #21262d}
 .ad-label{font-size:0.7rem;color:#64748b;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
 
 .layout{display:grid;grid-template-columns:160px 1fr 160px;gap:16px;max-width:1300px;margin:0 auto;padding:16px}
 .sidebar{display:flex;flex-direction:column;gap:16px}
-.sidebar-ad{background:#1a1f2e;border-radius:12px;padding:12px;text-align:center;min-height:600px}
-.main{background:#1a1f2e;border-radius:16px;padding:0;overflow:hidden}
+.sidebar-ad{background:#161b22;border-radius:12px;padding:12px;text-align:center;min-height:600px}
 
-/* App-like header */
-.app-header{background:#1a1f2e;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #2d3748}
-.app-title{font-size:1.05rem;font-weight:700;color:#fff}
-.header-actions{display:flex;gap:14px}
-.header-btn{background:none;border:none;color:#94a3b8;cursor:pointer;font-size:1.1rem;padding:4px}
-.header-btn:hover{color:#fff}
+/* App container - phone-like */
+.app{background:#0a0e14;border-radius:24px;overflow:hidden;max-width:420px;margin:0 auto;box-shadow:0 20px 60px rgba(0,0,0,0.5);border:1px solid #21262d}
+
+/* App header (like mobile) */
+.app-header{background:#161b22;padding:14px 12px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #21262d}
+.app-back{background:none;border:none;color:#fff;font-size:1.3rem;cursor:pointer;padding:4px 8px}
+.app-title{flex:1;font-size:1.05rem;font-weight:600;color:#fff}
+.app-actions{display:flex;gap:6px}
+.app-icon-btn{background:none;border:none;color:#cbd5e1;cursor:pointer;padding:6px 8px;font-size:1.05rem;border-radius:8px}
+.app-icon-btn:hover{background:#21262d}
+.app-icon-btn.play{background:#22c55e;color:#fff;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center}
 
 /* Formation chips */
-.formations{display:flex;gap:6px;padding:10px 16px;overflow-x:auto;scrollbar-width:none}
+.formations{display:flex;gap:6px;padding:12px;overflow-x:auto;scrollbar-width:none}
 .formations::-webkit-scrollbar{display:none}
-.formation-btn{background:#252b3b;border:1px solid #2d3748;padding:6px 14px;border-radius:16px;font-weight:500;font-size:0.8rem;cursor:pointer;color:#cbd5e1;white-space:nowrap;transition:all 0.2s}
-.formation-btn.active{background:#16a34a;border-color:#16a34a;color:#fff;font-weight:700}
-
-.player-count{padding:4px 16px 8px;display:flex;justify-content:space-between;font-size:0.75rem;color:#64748b}
+.formation-btn{background:#1e2530;border:1px solid #2d3748;padding:6px 16px;border-radius:18px;font-weight:600;font-size:0.78rem;cursor:pointer;color:#94a3b8;white-space:nowrap;transition:all 0.2s}
+.formation-btn.auto{background:#22c55e;border-color:#22c55e;color:#fff;display:flex;align-items:center;gap:4px}
+.formation-btn.active{background:#3b82f6;border-color:#3b82f6;color:#fff}
 
 /* Field */
-.field-wrap{padding:0 12px 12px;display:flex;justify-content:center}
-.field{position:relative;width:100%;max-width:480px;aspect-ratio:0.65;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.4)}
+.field-wrap{padding:0 10px 10px}
+.field{position:relative;width:100%;aspect-ratio:0.62;border-radius:8px;overflow:hidden;background:#15803d}
 .field canvas{position:absolute;inset:0;width:100%;height:100%}
 .field-overlay{position:absolute;inset:0}
 
-.player{position:absolute;transform:translate(-50%,-50%);cursor:grab;user-select:none;touch-action:none;display:flex;flex-direction:column;align-items:center;width:68px}
+/* Player jersey */
+.player{position:absolute;transform:translate(-50%,-50%);cursor:grab;user-select:none;touch-action:none;display:flex;flex-direction:column;align-items:center;width:64px}
 .player:active{cursor:grabbing;z-index:10}
-.jersey-svg{width:48px;height:50px;filter:drop-shadow(0 4px 6px rgba(0,0,0,0.4))}
-.jersey-num{position:absolute;top:50%;left:50%;transform:translate(-50%,-30%);color:#fff;font-weight:800;font-size:1.05rem;pointer-events:none;text-shadow:0 1px 2px rgba(0,0,0,0.4)}
-.player-wrap{position:relative;width:48px;height:50px}
-.player-name{margin-top:3px;font-size:0.65rem;font-weight:700;color:#fff;background:rgba(0,0,0,0.65);padding:1px 6px;border-radius:8px;white-space:nowrap;max-width:64px;overflow:hidden;text-overflow:ellipsis;text-align:center}
-.player.empty .jersey-num{color:rgba(255,255,255,0.85)}
-.player.empty .player-name{display:none}
+.jersey-box{position:relative;width:42px;height:44px;display:flex;align-items:center;justify-content:center}
+.player-name{margin-top:3px;font-size:0.62rem;font-weight:700;color:#fff;background:rgba(0,0,0,0.7);padding:1px 6px;border-radius:6px;white-space:nowrap;max-width:62px;overflow:hidden;text-overflow:ellipsis;text-align:center;line-height:1.3}
 
 /* Bottom bar */
-.bottom-bar{padding:10px 16px;border-top:1px solid #2d3748;display:flex;gap:8px;justify-content:space-between;align-items:center}
-.btn{padding:9px 16px;border-radius:50px;border:none;cursor:pointer;font-weight:600;font-size:0.8rem;transition:all 0.2s}
-.btn-primary{background:#16a34a;color:#fff}
-.btn-primary:hover{background:#15803d}
-.btn-secondary{background:#252b3b;color:#cbd5e1;border:1px solid #2d3748}
-.btn-secondary:hover{background:#2d3748}
+.bottom-bar{background:#0a0e14;padding:10px 16px;border-top:1px solid #21262d;display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;color:#64748b}
+.bottom-bar-actions{display:flex;gap:8px}
+.btn-action{background:#1e2530;border:1px solid #2d3748;color:#cbd5e1;padding:6px 12px;border-radius:14px;font-size:0.7rem;font-weight:600;cursor:pointer}
+.btn-action:hover{background:#2d3748}
+.btn-action.guest{background:none;color:#22c55e;border-color:transparent}
 
-.mid-ad{background:#1a1f2e;border-radius:12px;padding:16px;text-align:center;margin:24px auto;max-width:728px;min-height:120px}
+.mid-ad{background:#161b22;border-radius:12px;padding:16px;text-align:center;margin:24px auto;max-width:728px;min-height:120px}
 
-.cta-section{background:linear-gradient(135deg,#16a34a,#15803d);color:#fff;padding:40px 24px;border-radius:16px;text-align:center;margin:24px 16px;max-width:1000px;margin-left:auto;margin-right:auto}
+.cta-section{background:linear-gradient(135deg,#22c55e,#15803d);color:#fff;padding:40px 24px;border-radius:16px;text-align:center;margin:24px auto;max-width:1000px}
 .cta-section h2{font-size:1.6rem;font-weight:800;margin-bottom:8px}
 .cta-section p{opacity:0.9;margin-bottom:20px}
-.cta-section a{display:inline-block;background:#fff;color:#16a34a;padding:14px 32px;border-radius:50px;text-decoration:none;font-weight:700}
+.cta-section a{display:inline-block;background:#fff;color:#15803d;padding:14px 32px;border-radius:50px;text-decoration:none;font-weight:700}
 
-footer{text-align:center;padding:24px;color:#64748b;font-size:0.85rem;background:#0f1419;border-top:1px solid #2d3748}
-footer a{color:#16a34a;text-decoration:none;margin:0 12px}
+footer{text-align:center;padding:24px;color:#64748b;font-size:0.85rem;background:#0d1117;border-top:1px solid #21262d}
+footer a{color:#22c55e;text-decoration:none;margin:0 12px}
 
 @media(max-width:1024px){
   .layout{grid-template-columns:1fr;padding:8px}
   .sidebar{display:none}
-  .main{border-radius:12px}
 }
 
 /* Modal */
 .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:200;align-items:center;justify-content:center;padding:20px}
 .modal.show{display:flex}
-.modal-box{background:#1a1f2e;border:1px solid #2d3748;border-radius:16px;padding:24px;max-width:380px;width:100%}
+.modal-box{background:#161b22;border:1px solid #21262d;border-radius:16px;padding:24px;max-width:380px;width:100%}
 .modal-box h3{margin-bottom:16px;color:#fff}
 .modal-box label{display:block;font-size:0.8rem;color:#94a3b8;margin-bottom:4px}
-.modal-box input{width:100%;padding:10px;background:#0f1419;border:1px solid #2d3748;border-radius:8px;font-size:1rem;margin-bottom:12px;color:#fff}
+.modal-box input{width:100%;padding:10px;background:#0d1117;border:1px solid #2d3748;border-radius:8px;font-size:1rem;margin-bottom:12px;color:#fff}
 .modal-box .modal-buttons{display:flex;gap:8px;justify-content:flex-end;margin-top:8px}
+.btn{padding:9px 18px;border-radius:50px;border:none;cursor:pointer;font-weight:600;font-size:0.85rem}
+.btn-primary{background:#22c55e;color:#fff}
+.btn-secondary{background:#1e2530;color:#cbd5e1;border:1px solid #2d3748}
 </style>
 </head>
 <body>
 
-<nav>
-  <a href="https://gggk720.github.io/coach-soccer/" class="nav-brand">
+<nav class="web-nav">
+  <a href="https://gggk720.github.io/coach-soccer/" class="web-nav-brand">
     <img src="https://gggk720.github.io/coach-soccer/assets/app_icon.png" alt="Icon">
     <span>I am The Coach - Soccer</span>
   </a>
-  <a href="https://play.google.com/store/apps/details?id=com.coachboard.coachboard" class="nav-cta">📱 Download App</a>
+  <a href="https://play.google.com/store/apps/details?id=com.coachboard.coachboard" class="web-nav-cta">📱 Download App</a>
 </nav>
 
 <div class="ad-banner">
@@ -115,36 +117,37 @@ footer a{color:#16a34a;text-decoration:none;margin:0 12px}
     </div>
   </aside>
 
-  <main class="main">
-    <div class="app-header">
-      <div class="app-title">Quick Lineup</div>
-      <div class="header-actions">
-        <button class="header-btn" onclick="resetLineup()" title="Reset">↻</button>
-        <button class="header-btn" onclick="randomNames()" title="Random">🎲</button>
-        <button class="header-btn" onclick="window.location.href='https://gggk720.github.io/coach-soccer/'" title="Save">💾</button>
+  <div>
+    <div class="app">
+      <div class="app-header">
+        <button class="app-back" onclick="window.location.href='https://gggk720.github.io/coach-soccer/'">←</button>
+        <div class="app-title">Lineup</div>
+        <div class="app-actions">
+          <button class="app-icon-btn" onclick="resetLineup()" title="History">↻</button>
+          <button class="app-icon-btn" onclick="window.location.href='https://gggk720.github.io/coach-soccer/'" title="Save">💾</button>
+          <button class="app-icon-btn" onclick="window.location.href='https://gggk720.github.io/coach-soccer/'" title="Share">↗</button>
+          <button class="app-icon-btn play" onclick="randomNames()" title="Auto">▶</button>
+        </div>
+      </div>
+
+      <div class="formations" id="formations"></div>
+
+      <div class="field-wrap">
+        <div class="field" id="field">
+          <canvas id="field-canvas"></canvas>
+          <div class="field-overlay" id="overlay"></div>
+        </div>
+      </div>
+
+      <div class="bottom-bar">
+        <span><strong>BENCH & AVAILABLE</strong></span>
+        <div class="bottom-bar-actions">
+          <span id="count-text">3 players</span>
+          <span class="btn-action guest">+ Guest Player</span>
+        </div>
       </div>
     </div>
-
-    <div class="formations" id="formations"></div>
-
-    <div class="player-count">
-      <span id="count-text">0/11 players</span>
-      <span>Tap slot to add • Drag to move</span>
-    </div>
-
-    <div class="field-wrap">
-      <div class="field" id="field">
-        <canvas id="field-canvas"></canvas>
-        <div class="field-overlay" id="overlay"></div>
-      </div>
-    </div>
-
-    <div class="bottom-bar">
-      <button class="btn btn-secondary" onclick="resetLineup()">Reset</button>
-      <button class="btn btn-secondary" onclick="randomNames()">Random Names</button>
-      <button class="btn btn-primary" onclick="window.location.href='https://gggk720.github.io/coach-soccer/'">Save Lineup →</button>
-    </div>
-  </main>
+  </div>
 
   <aside class="sidebar">
     <div class="sidebar-ad">
@@ -196,15 +199,15 @@ footer a{color:#16a34a;text-decoration:none;margin:0 12px}
 
 <script>
 const FORMATIONS = {
-  '4-4-2':[{l:'GK',x:0.5,y:0.91},{l:'LB',x:0.12,y:0.73},{l:'CB',x:0.35,y:0.77},{l:'CB',x:0.65,y:0.77},{l:'RB',x:0.88,y:0.73},{l:'LM',x:0.12,y:0.49},{l:'CM',x:0.35,y:0.52},{l:'CM',x:0.65,y:0.52},{l:'RM',x:0.88,y:0.49},{l:'ST',x:0.35,y:0.22},{l:'ST',x:0.65,y:0.22}],
-  '4-3-3':[{l:'GK',x:0.5,y:0.91},{l:'LB',x:0.12,y:0.73},{l:'CB',x:0.35,y:0.77},{l:'CB',x:0.65,y:0.77},{l:'RB',x:0.88,y:0.73},{l:'CM',x:0.25,y:0.52},{l:'CM',x:0.5,y:0.48},{l:'CM',x:0.75,y:0.52},{l:'LW',x:0.15,y:0.24},{l:'ST',x:0.5,y:0.17},{l:'RW',x:0.85,y:0.24}],
-  '3-5-2':[{l:'GK',x:0.5,y:0.91},{l:'CB',x:0.25,y:0.77},{l:'CB',x:0.5,y:0.8},{l:'CB',x:0.75,y:0.77},{l:'LWB',x:0.08,y:0.52},{l:'CM',x:0.3,y:0.52},{l:'CM',x:0.5,y:0.46},{l:'CM',x:0.7,y:0.52},{l:'RWB',x:0.92,y:0.52},{l:'ST',x:0.35,y:0.2},{l:'ST',x:0.65,y:0.2}],
-  '4-2-3-1':[{l:'GK',x:0.5,y:0.91},{l:'LB',x:0.12,y:0.73},{l:'CB',x:0.35,y:0.77},{l:'CB',x:0.65,y:0.77},{l:'RB',x:0.88,y:0.73},{l:'CDM',x:0.35,y:0.6},{l:'CDM',x:0.65,y:0.6},{l:'CAM',x:0.5,y:0.4},{l:'LW',x:0.15,y:0.32},{l:'RW',x:0.85,y:0.32},{l:'ST',x:0.5,y:0.17}],
-  '5-3-2':[{l:'GK',x:0.5,y:0.91},{l:'LWB',x:0.08,y:0.7},{l:'CB',x:0.28,y:0.78},{l:'CB',x:0.5,y:0.8},{l:'CB',x:0.72,y:0.78},{l:'RWB',x:0.92,y:0.7},{l:'CM',x:0.3,y:0.5},{l:'CM',x:0.5,y:0.46},{l:'CM',x:0.7,y:0.5},{l:'ST',x:0.35,y:0.2},{l:'ST',x:0.65,y:0.2}],
-  '4-1-4-1':[{l:'GK',x:0.5,y:0.91},{l:'LB',x:0.12,y:0.73},{l:'CB',x:0.35,y:0.77},{l:'CB',x:0.65,y:0.77},{l:'RB',x:0.88,y:0.73},{l:'CDM',x:0.5,y:0.6},{l:'LM',x:0.12,y:0.42},{l:'CM',x:0.35,y:0.42},{l:'CM',x:0.65,y:0.42},{l:'RM',x:0.88,y:0.42},{l:'ST',x:0.5,y:0.18}]
+  '4-4-2':[{l:'GK',x:0.5,y:0.91,gk:true},{l:'LB',x:0.12,y:0.73},{l:'CB',x:0.35,y:0.77},{l:'CB',x:0.65,y:0.77},{l:'RB',x:0.88,y:0.73},{l:'LM',x:0.12,y:0.49},{l:'CM',x:0.35,y:0.52},{l:'CM',x:0.65,y:0.52},{l:'RM',x:0.88,y:0.49},{l:'ST',x:0.35,y:0.22},{l:'ST',x:0.65,y:0.22}],
+  '4-3-3':[{l:'GK',x:0.5,y:0.91,gk:true},{l:'LB',x:0.12,y:0.73},{l:'CB',x:0.35,y:0.77},{l:'CB',x:0.65,y:0.77},{l:'RB',x:0.88,y:0.73},{l:'CM',x:0.25,y:0.52},{l:'CM',x:0.5,y:0.48},{l:'CM',x:0.75,y:0.52},{l:'LW',x:0.15,y:0.24},{l:'ST',x:0.5,y:0.17},{l:'RW',x:0.85,y:0.24}],
+  '3-5-2':[{l:'GK',x:0.5,y:0.91,gk:true},{l:'CB',x:0.25,y:0.77},{l:'CB',x:0.5,y:0.8},{l:'CB',x:0.75,y:0.77},{l:'LWB',x:0.08,y:0.52},{l:'CM',x:0.3,y:0.52},{l:'CM',x:0.5,y:0.46},{l:'CM',x:0.7,y:0.52},{l:'RWB',x:0.92,y:0.52},{l:'ST',x:0.35,y:0.2},{l:'ST',x:0.65,y:0.2}],
+  '4-2-3-1':[{l:'GK',x:0.5,y:0.91,gk:true},{l:'LB',x:0.12,y:0.73},{l:'CB',x:0.35,y:0.77},{l:'CB',x:0.65,y:0.77},{l:'RB',x:0.88,y:0.73},{l:'CDM',x:0.35,y:0.6},{l:'CDM',x:0.65,y:0.6},{l:'CAM',x:0.5,y:0.4},{l:'LW',x:0.15,y:0.32},{l:'RW',x:0.85,y:0.32},{l:'ST',x:0.5,y:0.17}],
+  '5-3-2':[{l:'GK',x:0.5,y:0.91,gk:true},{l:'LWB',x:0.08,y:0.7},{l:'CB',x:0.28,y:0.78},{l:'CB',x:0.5,y:0.8},{l:'CB',x:0.72,y:0.78},{l:'RWB',x:0.92,y:0.7},{l:'CM',x:0.3,y:0.5},{l:'CM',x:0.5,y:0.46},{l:'CM',x:0.7,y:0.5},{l:'ST',x:0.35,y:0.2},{l:'ST',x:0.65,y:0.2}],
+  '4-1-4-1':[{l:'GK',x:0.5,y:0.91,gk:true},{l:'LB',x:0.12,y:0.73},{l:'CB',x:0.35,y:0.77},{l:'CB',x:0.65,y:0.77},{l:'RB',x:0.88,y:0.73},{l:'CDM',x:0.5,y:0.6},{l:'LM',x:0.12,y:0.42},{l:'CM',x:0.35,y:0.42},{l:'CM',x:0.65,y:0.42},{l:'RM',x:0.88,y:0.42},{l:'ST',x:0.5,y:0.18}]
 };
 
-const NAMES = ['Messi','Ronaldo','Mbappe','Haaland','Salah','Kane','Bellingham','De Bruyne','Modric','Vinicius','Pedri','Rodri','Foden','Lewandowski','Saka','Bruno','Son','Neymar','Lautaro','Rashford','Griezmann','Benzema','Suarez','Dybala','Cavani'];
+const NAMES = ['Mbappé','Endrick','Bellingham','Valverde','Modrić','Camavinga','Mendy','Militão','Rüdiger','Carvajal','Courtois','Vinícius','Rodrygo','Kroos','Tchouaméni','Asensio','Nacho','Lunin','Ceballos','Brahim'];
 
 let currentFormation = '4-4-2';
 let players = {};
@@ -221,18 +224,18 @@ function drawField(){
   ctx.scale(dpr, dpr);
   const w = rect.width, h = rect.height;
 
-  // Field background with stripes
+  // Field with darker green stripes (matching app)
   const stripes = 12;
   const sh = h / stripes;
   for(let i = 0; i < stripes; i++){
-    ctx.fillStyle = i % 2 === 0 ? '#16a34a' : '#15803d';
+    ctx.fillStyle = i % 2 === 0 ? '#1f7a3d' : '#15803d';
     ctx.fillRect(0, i*sh, w, sh);
   }
 
   // Lines
   ctx.strokeStyle = 'rgba(255,255,255,0.85)';
-  ctx.lineWidth = 1.5;
-  const m = w * 0.05;
+  ctx.lineWidth = 1.2;
+  const m = w * 0.04;
 
   // Outer
   ctx.strokeRect(m, m, w-m*2, h-m*2);
@@ -243,45 +246,66 @@ function drawField(){
   ctx.stroke();
   // Center circle
   ctx.beginPath();
-  ctx.arc(w/2, h/2, w*0.14, 0, Math.PI*2);
+  ctx.arc(w/2, h/2, w*0.13, 0, Math.PI*2);
   ctx.stroke();
   // Center dot
   ctx.fillStyle = 'rgba(255,255,255,0.85)';
   ctx.beginPath();
-  ctx.arc(w/2, h/2, 2.5, 0, Math.PI*2);
+  ctx.arc(w/2, h/2, 2, 0, Math.PI*2);
   ctx.fill();
 
   // Penalty areas
-  const pw = w*0.44, ph = h*0.16;
+  const pw = w*0.46, ph = h*0.16;
   ctx.strokeRect((w-pw)/2, m, pw, ph);
   ctx.strokeRect((w-pw)/2, h-m-ph, pw, ph);
   // Goal areas
   const gw = w*0.22, gh = h*0.06;
   ctx.strokeRect((w-gw)/2, m, gw, gh);
   ctx.strokeRect((w-gw)/2, h-m-gh, gw, gh);
+  // Goal posts
+  const goalw = w*0.12, goalh = h*0.012;
+  ctx.fillStyle = 'rgba(255,255,255,0.85)';
+  ctx.fillRect((w-goalw)/2, m-goalh, goalw, goalh);
+  ctx.fillRect((w-goalw)/2, h-m, goalw, goalh);
 
   // Penalty arcs
   ctx.beginPath();
-  ctx.arc(w/2, m+ph, w*0.08, 0, Math.PI);
+  ctx.arc(w/2, m+ph, w*0.07, 0.2, Math.PI-0.2);
   ctx.stroke();
   ctx.beginPath();
-  ctx.arc(w/2, h-m-ph, w*0.08, Math.PI, Math.PI*2);
+  ctx.arc(w/2, h-m-ph, w*0.07, Math.PI+0.2, Math.PI*2-0.2);
   ctx.stroke();
+
+  // Center circle dots
+  ctx.fillStyle = 'rgba(255,255,255,0.85)';
+  ctx.beginPath();
+  ctx.arc(w/2, m+ph*1.3, 2, 0, Math.PI*2);
+  ctx.fill();
+  ctx.beginPath();
+  ctx.arc(w/2, h-m-ph*1.3, 2, 0, Math.PI*2);
+  ctx.fill();
 }
 
-function jerseySvg(num, isEmpty){
-  const fillColor = isEmpty ? 'transparent' : '#dc2626';
-  const strokeColor = isEmpty ? 'rgba(255,255,255,0.6)' : '#dc2626';
-  const strokeWidth = isEmpty ? 2 : 0;
-  const dash = isEmpty ? 'stroke-dasharray="3,3"' : '';
-  return `<svg class="jersey-svg" viewBox="0 0 100 105" xmlns="http://www.w3.org/2000/svg">
-    <path d="M37 0 L2 14 L2 35 L22 35 L22 100 L78 100 L78 35 L98 35 L98 14 L63 0 L50 10 L37 0 Z"
-      fill="${fillColor}" stroke="${strokeColor}" stroke-width="${strokeWidth}" ${dash}/>
+function jerseySvg(num, isEmpty, isGK){
+  // Match app QuickPlayerAvatar shape: V-neck shirt
+  const fill = isEmpty ? 'rgba(255,255,255,0.15)' : (isGK ? '#fbbf24' : '#ffffff');
+  const stroke = isEmpty ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.2)';
+  const numColor = isEmpty ? '#ffffff' : (isGK ? '#1a1a1a' : '#1a1a1a');
+  return `<svg width="42" height="44" viewBox="0 0 100 105" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 3px 4px rgba(0,0,0,0.4))">
+    <path d="M37 0 L2 14 L2 35 L22 35 L22 100 L78 100 L78 35 L98 35 L98 14 L63 0 L50 12 L37 0 Z"
+      fill="${fill}" stroke="${stroke}" stroke-width="1.5"/>
+    <text x="50" y="68" text-anchor="middle" font-family="Inter, sans-serif" font-size="38" font-weight="800" fill="${numColor}">${num}</text>
   </svg>`;
 }
 
 function init(){
   const fc = document.getElementById('formations');
+  // Auto button first
+  const autoBtn = document.createElement('button');
+  autoBtn.className = 'formation-btn auto';
+  autoBtn.innerHTML = '✨ Auto';
+  autoBtn.onclick = randomNames;
+  fc.appendChild(autoBtn);
   Object.keys(FORMATIONS).forEach(name=>{
     const btn = document.createElement('button');
     btn.className = 'formation-btn' + (name===currentFormation?' active':'');
@@ -291,13 +315,15 @@ function init(){
   });
   drawField();
   buildOverlay();
-  window.addEventListener('resize', ()=>{ drawField(); buildOverlay(); });
+  let resizeTimer;
+  window.addEventListener('resize', ()=>{ clearTimeout(resizeTimer); resizeTimer = setTimeout(()=>{ drawField(); buildOverlay(); }, 100); });
 }
 
 function setFormation(name){
   currentFormation = name;
   players = {};
   document.querySelectorAll('.formation-btn').forEach(b=>{
+    if(b.classList.contains('auto')) return;
     b.classList.toggle('active', b.textContent===name);
   });
   buildOverlay();
@@ -317,7 +343,7 @@ function buildOverlay(){
     el.style.left = (slot.x*100)+'%';
     el.style.top = (slot.y*100)+'%';
     const num = isEmpty ? slot.l : (p.number || (idx+1));
-    el.innerHTML = `<div class="player-wrap">${jerseySvg(num, isEmpty)}<div class="jersey-num">${num}</div></div>${!isEmpty?'<div class="player-name">'+p.name+'</div>':''}`;
+    el.innerHTML = `<div class="jersey-box">${jerseySvg(num, isEmpty, slot.gk)}</div>${!isEmpty?'<div class="player-name">'+p.name+'</div>':''}`;
     el.dataset.idx = idx;
     el.onclick = ()=>{ if(!dragState||!dragState.moved) openEdit(idx); };
     addDrag(el);
